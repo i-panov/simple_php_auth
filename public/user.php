@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ]);
     } else {
         $validationFields = array_merge($validationFields, ['login', 'password']);
-        $user->password = password_hash($user->password, PASSWORD_DEFAULT);
         $user->load($_POST);
+        $user->password = password_hash($user->password, PASSWORD_DEFAULT);
     }
 
     $validationErrors = $user->validate($validationFields);

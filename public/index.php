@@ -2,9 +2,7 @@
 
 use App\Models\User;
 
-if (empty($_SESSION['user_login'])) {
-    redirect('/login.php');
-}
+requireAuth();
 
 ?>
 

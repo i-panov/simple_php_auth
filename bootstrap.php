@@ -9,3 +9,9 @@ function redirect(string $location, bool $permanent = false) {
     header("Location: $location", true, $permanent ? 301 : 302);
     die();
 }
+
+function requireAuth() {
+    if (empty($_SESSION['user_login'])) {
+        redirect('/login.php');
+    }
+}

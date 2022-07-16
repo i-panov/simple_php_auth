@@ -125,7 +125,7 @@ class User {
         $db['users'] = [];
 
         foreach ($users as $model) {
-            if ($model->login) {
+            if ($model instanceof self && $model->login) {
                 $db['users'][$model->login] = $model->toArray();
             }
         }
